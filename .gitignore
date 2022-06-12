@@ -1,0 +1,13 @@
+.DS_Store
+.env
+coverage
+coverage.json
+typechain
+
+#Hardhat files
+cache
+artifacts
+
+#Node modules
+node_modules
+package-lock.json
