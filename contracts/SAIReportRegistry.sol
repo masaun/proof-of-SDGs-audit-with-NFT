@@ -14,7 +14,11 @@ contract SAIReportRegistry is ISAIReportRegistry {
         something = _something;
     }
 
-    function registerNewSAIReport(address organization) external override {
+    /**
+     * @notice - Register a new SAIReport
+     * @dev - Multi-Sig btw organization and auditor
+     */ 
+    function registerNewSAIReport(address organization, address auditor, string memory contentHashOfSAIReport) external override {
         // [TODO]:
     }
 
