@@ -22,7 +22,7 @@ contract SAIReportRegistry is ISAIReportRegistry {
         // [TODO]:
     }
 
-    function getSAIReport(address organization) external override view returns (string memory) {
+    function getSAIReport(address organization) external override view returns (string memory _contentHashOfSAIReport) {
         return something;
     }
 
