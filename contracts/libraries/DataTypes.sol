@@ -9,6 +9,29 @@ pragma solidity 0.8.10;
  * @notice A standard library of data types used throughout the Lens Protocol.
  */
 library DataTypes {
+
+    /**
+     * @notice - Data of SAI Report
+     */ 
+    struct SAIReport {
+        address organization; 
+        address auditor; 
+        string memory contentHashOfSAIReport;
+    }
+
+
+
+
+
+
+
+
+
+
+    ///--------------
+    /// Ref
+    ///--------------
+
     /**
      * @notice An enum containing the different states the protocol can be in, limiting certain actions.
      *
