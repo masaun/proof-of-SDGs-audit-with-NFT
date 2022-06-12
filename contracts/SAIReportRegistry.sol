@@ -16,7 +16,7 @@ contract SAIReportRegistry is ISAIReportRegistry {
 
     string private something;
 
-    mapping (address => mapping (address => DataTypes.SAIReport))) saiReports; 
+    mapping (address => mapping (address => DataTypes.SAIReport)) saiReports; 
 
     constructor(string memory _something) {
         //[TODO]:

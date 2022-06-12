@@ -16,7 +16,7 @@ library DataTypes {
     struct SAIReport {
         address organization; 
         address auditor; 
-        string memory contentHashOfSAIReport;
+        string contentHashOfSAIReport;
     }
 
 
