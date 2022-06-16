@@ -24,12 +24,47 @@ const _abi = [
         name: "organization",
         type: "address",
       },
+      {
+        internalType: "address",
+        name: "auditor",
+        type: "address",
+      },
     ],
     name: "getSAIReport",
     outputs: [
       {
+        components: [
+          {
+            internalType: "address",
+            name: "organization",
+            type: "address",
+          },
+          {
+            internalType: "address",
+            name: "auditor",
+            type: "address",
+          },
+          {
+            internalType: "string",
+            name: "contentHashOfSAIReport",
+            type: "string",
+          },
+        ],
+        internalType: "struct DataTypes.SAIReport",
+        name: "_saiReport",
+        type: "tuple",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "getSomething",
+    outputs: [
+      {
         internalType: "string",
-        name: "_contentHashOfSAIReport",
+        name: "_something",
         type: "string",
       },
     ],

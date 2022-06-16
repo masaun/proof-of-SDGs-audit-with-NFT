@@ -22,14 +22,19 @@ import { FunctionFragment, EventFragment, Result } from "@ethersproject/abi";
 
 interface SAIReportRegistryInterface extends ethers.utils.Interface {
   functions: {
-    "getSAIReport(address)": FunctionFragment;
+    "getSAIReport(address,address)": FunctionFragment;
+    "getSomething()": FunctionFragment;
     "organizations(uint256)": FunctionFragment;
     "registerNewSAIReport(address,address,string)": FunctionFragment;
   };
 
   encodeFunctionData(
     functionFragment: "getSAIReport",
-    values: [string]
+    values: [string, string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getSomething",
+    values?: undefined
   ): string;
   encodeFunctionData(
     functionFragment: "organizations",
@@ -42,6 +47,10 @@ interface SAIReportRegistryInterface extends ethers.utils.Interface {
 
   decodeFunctionResult(
     functionFragment: "getSAIReport",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getSomething",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -72,13 +81,51 @@ export class SAIReportRegistry extends Contract {
   functions: {
     getSAIReport(
       organization: string,
+      auditor: string,
       overrides?: CallOverrides
-    ): Promise<[string] & { _contentHashOfSAIReport: string }>;
+    ): Promise<
+      [
+        [string, string, string] & {
+          organization: string;
+          auditor: string;
+          contentHashOfSAIReport: string;
+        }
+      ] & {
+        _saiReport: [string, string, string] & {
+          organization: string;
+          auditor: string;
+          contentHashOfSAIReport: string;
+        };
+      }
+    >;
 
-    "getSAIReport(address)"(
+    "getSAIReport(address,address)"(
       organization: string,
+      auditor: string,
       overrides?: CallOverrides
-    ): Promise<[string] & { _contentHashOfSAIReport: string }>;
+    ): Promise<
+      [
+        [string, string, string] & {
+          organization: string;
+          auditor: string;
+          contentHashOfSAIReport: string;
+        }
+      ] & {
+        _saiReport: [string, string, string] & {
+          organization: string;
+          auditor: string;
+          contentHashOfSAIReport: string;
+        };
+      }
+    >;
+
+    getSomething(
+      overrides?: CallOverrides
+    ): Promise<[string] & { _something: string }>;
+
+    "getSomething()"(
+      overrides?: CallOverrides
+    ): Promise<[string] & { _something: string }>;
 
     organizations(
       arg0: BigNumberish,
@@ -107,13 +154,31 @@ export class SAIReportRegistry extends Contract {
 
   getSAIReport(
     organization: string,
+    auditor: string,
     overrides?: CallOverrides
-  ): Promise<string>;
+  ): Promise<
+    [string, string, string] & {
+      organization: string;
+      auditor: string;
+      contentHashOfSAIReport: string;
+    }
+  >;
 
-  "getSAIReport(address)"(
+  "getSAIReport(address,address)"(
     organization: string,
+    auditor: string,
     overrides?: CallOverrides
-  ): Promise<string>;
+  ): Promise<
+    [string, string, string] & {
+      organization: string;
+      auditor: string;
+      contentHashOfSAIReport: string;
+    }
+  >;
+
+  getSomething(overrides?: CallOverrides): Promise<string>;
+
+  "getSomething()"(overrides?: CallOverrides): Promise<string>;
 
   organizations(arg0: BigNumberish, overrides?: CallOverrides): Promise<string>;
 
@@ -139,13 +204,31 @@ export class SAIReportRegistry extends Contract {
   callStatic: {
     getSAIReport(
       organization: string,
+      auditor: string,
       overrides?: CallOverrides
-    ): Promise<string>;
+    ): Promise<
+      [string, string, string] & {
+        organization: string;
+        auditor: string;
+        contentHashOfSAIReport: string;
+      }
+    >;
 
-    "getSAIReport(address)"(
+    "getSAIReport(address,address)"(
       organization: string,
+      auditor: string,
       overrides?: CallOverrides
-    ): Promise<string>;
+    ): Promise<
+      [string, string, string] & {
+        organization: string;
+        auditor: string;
+        contentHashOfSAIReport: string;
+      }
+    >;
+
+    getSomething(overrides?: CallOverrides): Promise<string>;
+
+    "getSomething()"(overrides?: CallOverrides): Promise<string>;
 
     organizations(
       arg0: BigNumberish,
@@ -177,13 +260,19 @@ export class SAIReportRegistry extends Contract {
   estimateGas: {
     getSAIReport(
       organization: string,
+      auditor: string,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    "getSAIReport(address)"(
+    "getSAIReport(address,address)"(
       organization: string,
+      auditor: string,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
+
+    getSomething(overrides?: CallOverrides): Promise<BigNumber>;
+
+    "getSomething()"(overrides?: CallOverrides): Promise<BigNumber>;
 
     organizations(
       arg0: BigNumberish,
@@ -213,13 +302,19 @@ export class SAIReportRegistry extends Contract {
   populateTransaction: {
     getSAIReport(
       organization: string,
+      auditor: string,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    "getSAIReport(address)"(
+    "getSAIReport(address,address)"(
       organization: string,
+      auditor: string,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
+
+    getSomething(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    "getSomething()"(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     organizations(
       arg0: BigNumberish,
