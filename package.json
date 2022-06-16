@@ -1,4 +1,19 @@
 {
+  "name": "proof-of-SDGs",
+  "scripts": {
+    "accounts": "npx hardhat accounts --network hardhat",
+    "test": "npx hardhat test --network hardhat",
+    "test:Something": "npx hardhat test ./test/Something.test.js --network hardhat",
+    "test:Scenario": "npx hardhat test ./test/Scenario.test.js --network hardhat",
+    "compile": "npx hardhat compile",
+    "deploy-local:Sample": "npx hardhat run scripts/deployment/00_deploy_Sample.js --network hardhat",    
+    "deploy-kovan:Something": "npx hardhat run scripts/deployment/deploySomething.script.js --network kovan",    
+    "node": "npx hardhat node",
+    "script-local:Something": "npx hardhat run scripts/Something.script.js --network hardhat",
+    "script-kovan:Something": "npx hardhat run scripts/Something.script.js --network kovan"
+  },
+  "dependencies": {
+  },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.4",
     "@nomiclabs/hardhat-waffle": "^2.0.2",
