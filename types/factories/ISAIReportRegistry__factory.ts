@@ -45,6 +45,11 @@ const _abi = [
             type: "address",
           },
           {
+            internalType: "enum DataTypes.TargetGoalInSDGs",
+            name: "targetGoalInSDGs",
+            type: "uint8",
+          },
+          {
             internalType: "string",
             name: "contentHashOfSAIReport",
             type: "string",
@@ -82,6 +87,11 @@ const _abi = [
         internalType: "address",
         name: "auditor",
         type: "address",
+      },
+      {
+        internalType: "enum DataTypes.TargetGoalInSDGs",
+        name: "_targetGoalInSDGs",
+        type: "uint8",
       },
       {
         internalType: "string",
