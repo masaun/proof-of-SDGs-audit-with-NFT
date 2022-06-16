@@ -25,7 +25,7 @@ interface SAIReportRegistryInterface extends ethers.utils.Interface {
     "getSAIReport(address,address)": FunctionFragment;
     "getSomething()": FunctionFragment;
     "organizations(uint256)": FunctionFragment;
-    "registerNewSAIReport(address,address,string)": FunctionFragment;
+    "registerNewSAIReport(address,address,uint8,string)": FunctionFragment;
   };
 
   encodeFunctionData(
@@ -42,7 +42,7 @@ interface SAIReportRegistryInterface extends ethers.utils.Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "registerNewSAIReport",
-    values: [string, string, string]
+    values: [string, string, BigNumberish, string]
   ): string;
 
   decodeFunctionResult(
@@ -85,15 +85,17 @@ export class SAIReportRegistry extends Contract {
       overrides?: CallOverrides
     ): Promise<
       [
-        [string, string, string] & {
+        [string, string, number, string] & {
           organization: string;
           auditor: string;
+          targetGoalInSDGs: number;
           contentHashOfSAIReport: string;
         }
       ] & {
-        _saiReport: [string, string, string] & {
+        _saiReport: [string, string, number, string] & {
           organization: string;
           auditor: string;
+          targetGoalInSDGs: number;
           contentHashOfSAIReport: string;
         };
       }
@@ -105,15 +107,17 @@ export class SAIReportRegistry extends Contract {
       overrides?: CallOverrides
     ): Promise<
       [
-        [string, string, string] & {
+        [string, string, number, string] & {
           organization: string;
           auditor: string;
+          targetGoalInSDGs: number;
           contentHashOfSAIReport: string;
         }
       ] & {
-        _saiReport: [string, string, string] & {
+        _saiReport: [string, string, number, string] & {
           organization: string;
           auditor: string;
+          targetGoalInSDGs: number;
           contentHashOfSAIReport: string;
         };
       }
@@ -140,13 +144,15 @@ export class SAIReportRegistry extends Contract {
     registerNewSAIReport(
       _organization: string,
       _auditor: string,
+      _targetGoalInSDGs: BigNumberish,
       _contentHashOfSAIReport: string,
       overrides?: Overrides
     ): Promise<ContractTransaction>;
 
-    "registerNewSAIReport(address,address,string)"(
+    "registerNewSAIReport(address,address,uint8,string)"(
       _organization: string,
       _auditor: string,
+      _targetGoalInSDGs: BigNumberish,
       _contentHashOfSAIReport: string,
       overrides?: Overrides
     ): Promise<ContractTransaction>;
@@ -157,9 +163,10 @@ export class SAIReportRegistry extends Contract {
     auditor: string,
     overrides?: CallOverrides
   ): Promise<
-    [string, string, string] & {
+    [string, string, number, string] & {
       organization: string;
       auditor: string;
+      targetGoalInSDGs: number;
       contentHashOfSAIReport: string;
     }
   >;
@@ -169,9 +176,10 @@ export class SAIReportRegistry extends Contract {
     auditor: string,
     overrides?: CallOverrides
   ): Promise<
-    [string, string, string] & {
+    [string, string, number, string] & {
       organization: string;
       auditor: string;
+      targetGoalInSDGs: number;
       contentHashOfSAIReport: string;
     }
   >;
@@ -190,13 +198,15 @@ export class SAIReportRegistry extends Contract {
   registerNewSAIReport(
     _organization: string,
     _auditor: string,
+    _targetGoalInSDGs: BigNumberish,
     _contentHashOfSAIReport: string,
     overrides?: Overrides
   ): Promise<ContractTransaction>;
 
-  "registerNewSAIReport(address,address,string)"(
+  "registerNewSAIReport(address,address,uint8,string)"(
     _organization: string,
     _auditor: string,
+    _targetGoalInSDGs: BigNumberish,
     _contentHashOfSAIReport: string,
     overrides?: Overrides
   ): Promise<ContractTransaction>;
@@ -207,9 +217,10 @@ export class SAIReportRegistry extends Contract {
       auditor: string,
       overrides?: CallOverrides
     ): Promise<
-      [string, string, string] & {
+      [string, string, number, string] & {
         organization: string;
         auditor: string;
+        targetGoalInSDGs: number;
         contentHashOfSAIReport: string;
       }
     >;
@@ -219,9 +230,10 @@ export class SAIReportRegistry extends Contract {
       auditor: string,
       overrides?: CallOverrides
     ): Promise<
-      [string, string, string] & {
+      [string, string, number, string] & {
         organization: string;
         auditor: string;
+        targetGoalInSDGs: number;
         contentHashOfSAIReport: string;
       }
     >;
@@ -243,13 +255,15 @@ export class SAIReportRegistry extends Contract {
     registerNewSAIReport(
       _organization: string,
       _auditor: string,
+      _targetGoalInSDGs: BigNumberish,
       _contentHashOfSAIReport: string,
       overrides?: CallOverrides
     ): Promise<void>;
 
-    "registerNewSAIReport(address,address,string)"(
+    "registerNewSAIReport(address,address,uint8,string)"(
       _organization: string,
       _auditor: string,
+      _targetGoalInSDGs: BigNumberish,
       _contentHashOfSAIReport: string,
       overrides?: CallOverrides
     ): Promise<void>;
@@ -287,13 +301,15 @@ export class SAIReportRegistry extends Contract {
     registerNewSAIReport(
       _organization: string,
       _auditor: string,
+      _targetGoalInSDGs: BigNumberish,
       _contentHashOfSAIReport: string,
       overrides?: Overrides
     ): Promise<BigNumber>;
 
-    "registerNewSAIReport(address,address,string)"(
+    "registerNewSAIReport(address,address,uint8,string)"(
       _organization: string,
       _auditor: string,
+      _targetGoalInSDGs: BigNumberish,
       _contentHashOfSAIReport: string,
       overrides?: Overrides
     ): Promise<BigNumber>;
@@ -329,13 +345,15 @@ export class SAIReportRegistry extends Contract {
     registerNewSAIReport(
       _organization: string,
       _auditor: string,
+      _targetGoalInSDGs: BigNumberish,
       _contentHashOfSAIReport: string,
       overrides?: Overrides
     ): Promise<PopulatedTransaction>;
 
-    "registerNewSAIReport(address,address,string)"(
+    "registerNewSAIReport(address,address,uint8,string)"(
       _organization: string,
       _auditor: string,
+      _targetGoalInSDGs: BigNumberish,
       _contentHashOfSAIReport: string,
       overrides?: Overrides
     ): Promise<PopulatedTransaction>;
