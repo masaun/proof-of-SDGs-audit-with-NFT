@@ -20,7 +20,8 @@ contract SAIReportRegistry is ISAIReportRegistry {
     //@dev - List of organizations registered
     address[] public organizations;
 
-    mapping (address => mapping (address => DataTypes.SAIReport)) saiReports; 
+    //@dev - Storage of the SAIReport (struct)
+    mapping (address => mapping (address => DataTypes.SAIReport)) saiReports;  // [Key]: organization's address -> auditor's address -> SAIReport struct
 
     constructor(string memory _something) {
         //[TODO]:
@@ -36,13 +37,27 @@ contract SAIReportRegistry is ISAIReportRegistry {
         // [TODO]:
 
         DataTypes.SAIReport storage saiReport = saiReports[_organization][_auditor];
+        saiReport.organization = _organization;
+        saiReport.auditor = _auditor;
         saiReport.contentHashOfSAIReport = _contentHashOfSAIReport;
 
         //@dev - Add a new organizations registered to the list of "organizations"
         organizations.push(_organization);
     }
 
-    function getSAIReport(address organization) external override view returns (string memory _contentHashOfSAIReport) {
+    /**
+     * @notice - Get a SAIReport registered
+     */ 
+    function getSAIReport(address organization, address auditor) external override view returns (DataTypes.SAIReport memory _saiReport) {
+        DataTypes.SAIReport memory saiReport = saiReports[organization][auditor];
+        return saiReport;
+    }
+
+
+    /**
+     * @notice - Test
+     */ 
+    function getSomething() external override view returns (string memory _something) {
         return something;
     }
 
