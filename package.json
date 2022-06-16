@@ -1,5 +1,6 @@
 {
   "name": "proof-of-SDGs",
+  "license": "MIT",  
   "scripts": {
     "accounts": "npx hardhat accounts --network hardhat",
     "test": "npx hardhat test --network hardhat",
