@@ -16,6 +16,9 @@ contract SAIReportRegistry is ISAIReportRegistry {
 
     string private something;
 
+    //@dev - List of organizations registered
+    address[] public organizations;
+
     mapping (address => mapping (address => DataTypes.SAIReport)) saiReports; 
 
     constructor(string memory _something) {
@@ -33,6 +36,9 @@ contract SAIReportRegistry is ISAIReportRegistry {
 
         DataTypes.SAIReport storage saiReport = saiReports[_organization][_auditor];
         saiReport.contentHashOfSAIReport = _contentHashOfSAIReport;
+
+        //@dev - Add a new organizations registered to the list of "organizations"
+        organizations.push(_organization);
     }
 
     function getSAIReport(address organization) external override view returns (string memory _contentHashOfSAIReport) {
