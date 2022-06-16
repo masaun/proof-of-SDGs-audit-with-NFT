@@ -37,6 +37,8 @@ contract SAIReportRegistry is ISAIReportRegistry {
         // [TODO]:
 
         DataTypes.SAIReport storage saiReport = saiReports[_organization][_auditor];
+        saiReport.organization = _organization;
+        saiReport.auditor = _auditor;
         saiReport.contentHashOfSAIReport = _contentHashOfSAIReport;
 
         //@dev - Add a new organizations registered to the list of "organizations"
