@@ -101,10 +101,10 @@ async function main() {
     //@dev - Deploy smart contracts
     await deploySmartContracts()
 
-    //@dev - 
+    //@dev - Register a new SAIReport
     await registerNewSAIReport()
 
-    //@dev - getSAIReport()
+    //@dev - Check whether a SAI Report was registered properly or not
     await getSAIReport()
 }
 
