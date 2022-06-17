@@ -67,13 +67,19 @@ describe("SAIReportRegistry", function () {
         // wait until the transaction is mined
         const txReceipt = await tx.wait()
 
-        // @dev - Check result
+        //@notice - Check whether a SAI Report was registered properly or not
         const saiReport: any = await saiReportRegistry.getSAIReport(organization, auditor)
         console.log(`saiReport: ${ saiReport }`)
         expect(saiReport.organization).to.eq(organization)
         expect(saiReport.auditor).to.eq(auditor)
         expect(saiReport.targetGoalInSDGs).to.eq(TargetGoalInSDGs.NO_POVERTY)  // 1
         expect(saiReport.contentHashOfSAIReport).to.eq(contentHashOfSAIReport)
+
+        //@notice - Check whether a proof of audit NFT is minted for the origanizaion registered or not
+        const proofId: number = 0  // [NOTE]: Proof ID is "tokenID" of ProofOfAuditNFT
+        const owner: string = await proofOfAuditNFT.ownerOf(proofId)
+        console.log(`owner: ${ owner }`)
+        expect(owner).to.eq(saiReport.organization)
     })
 
 })
