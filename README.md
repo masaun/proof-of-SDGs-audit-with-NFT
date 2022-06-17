@@ -12,6 +12,22 @@ npx hardhat test
 
 <br>
 
+### Script (include deployment on Polygon Mumbai)
+- Local
+```
+npm run script-local:SAIReportRegistry
+```
+
+<br>
+
+- Polygon Mumbai
+```
+npm run script-polygon_mumbai:SAIReportRegistry
+```
+
+
+<br>
+
 <hr>
 
 - **NFT badge** as **_proof_** of `achievement` for `each goals (17) of SDGs` . 🌿  

@@ -11,7 +11,7 @@
     "deploy-kovan:Something": "npx hardhat run scripts/deployment/deploySomething.script.js --network kovan",    
     "node": "npx hardhat node",
     "script-local:SAIReportRegistry": "npx hardhat run scripts/SAIReportRegistry.script.ts --network hardhat",
-    "script-kovan:SAIReportRegistry": "npx hardhat run scripts/SAIReportRegistry.script.ts --network kovan"
+    "script-polygon_mumbai:SAIReportRegistry": "npx hardhat run scripts/SAIReportRegistry.script.ts --network polygon_mumbai"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.6.0",
