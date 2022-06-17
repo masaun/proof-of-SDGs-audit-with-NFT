@@ -14,13 +14,13 @@ contract ProofOfAuditNFT is ERC721, Ownable {
 
     constructor() ERC721("ProofOfAuditNFT", "POA") {}
 
-    function mint(address to, uint256 tokenId) public {
+    function mint(address to) public {
         uint256 tokenId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
         _mint(to, tokenId);
     }
 
-    function safeMint(address to, uint256 tokenId) public onlyOwner {
+    function safeMint(address to) public onlyOwner {
         uint256 tokenId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
         _safeMint(to, tokenId);

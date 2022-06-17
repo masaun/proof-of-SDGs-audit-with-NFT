@@ -49,6 +49,9 @@ contract SAIReportRegistry is ISAIReportRegistry {
 
         //@dev - Add a new organizations registered to the list of "organizations"
         organizations.push(_organization);
+
+        //@dev - Mint a proof of audit NFT into the organization registered
+        proofOfAuditNFT.mint(_organization);
     }
 
     /**

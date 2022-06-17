@@ -26,12 +26,12 @@ interface ProofOfAuditNFTInterface extends ethers.utils.Interface {
     "balanceOf(address)": FunctionFragment;
     "getApproved(uint256)": FunctionFragment;
     "isApprovedForAll(address,address)": FunctionFragment;
-    "mint(address,uint256)": FunctionFragment;
+    "mint(address)": FunctionFragment;
     "name()": FunctionFragment;
     "owner()": FunctionFragment;
     "ownerOf(uint256)": FunctionFragment;
     "renounceOwnership()": FunctionFragment;
-    "safeMint(address,uint256)": FunctionFragment;
+    "safeMint(address)": FunctionFragment;
     "safeTransferFrom(address,address,uint256)": FunctionFragment;
     "setApprovalForAll(address,bool)": FunctionFragment;
     "supportsInterface(bytes4)": FunctionFragment;
@@ -54,10 +54,7 @@ interface ProofOfAuditNFTInterface extends ethers.utils.Interface {
     functionFragment: "isApprovedForAll",
     values: [string, string]
   ): string;
-  encodeFunctionData(
-    functionFragment: "mint",
-    values: [string, BigNumberish]
-  ): string;
+  encodeFunctionData(functionFragment: "mint", values: [string]): string;
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
   encodeFunctionData(
@@ -68,10 +65,7 @@ interface ProofOfAuditNFTInterface extends ethers.utils.Interface {
     functionFragment: "renounceOwnership",
     values?: undefined
   ): string;
-  encodeFunctionData(
-    functionFragment: "safeMint",
-    values: [string, BigNumberish]
-  ): string;
+  encodeFunctionData(functionFragment: "safeMint", values: [string]): string;
   encodeFunctionData(
     functionFragment: "safeTransferFrom",
     values: [string, string, BigNumberish]
@@ -208,15 +202,10 @@ export class ProofOfAuditNFT extends Contract {
       overrides?: CallOverrides
     ): Promise<[boolean]>;
 
-    mint(
-      to: string,
-      tokenId: BigNumberish,
-      overrides?: Overrides
-    ): Promise<ContractTransaction>;
+    mint(to: string, overrides?: Overrides): Promise<ContractTransaction>;
 
-    "mint(address,uint256)"(
+    "mint(address)"(
       to: string,
-      tokenId: BigNumberish,
       overrides?: Overrides
     ): Promise<ContractTransaction>;
 
@@ -242,15 +231,10 @@ export class ProofOfAuditNFT extends Contract {
 
     "renounceOwnership()"(overrides?: Overrides): Promise<ContractTransaction>;
 
-    safeMint(
-      to: string,
-      tokenId: BigNumberish,
-      overrides?: Overrides
-    ): Promise<ContractTransaction>;
+    safeMint(to: string, overrides?: Overrides): Promise<ContractTransaction>;
 
-    "safeMint(address,uint256)"(
+    "safeMint(address)"(
       to: string,
-      tokenId: BigNumberish,
       overrides?: Overrides
     ): Promise<ContractTransaction>;
 
@@ -371,15 +355,10 @@ export class ProofOfAuditNFT extends Contract {
     overrides?: CallOverrides
   ): Promise<boolean>;
 
-  mint(
-    to: string,
-    tokenId: BigNumberish,
-    overrides?: Overrides
-  ): Promise<ContractTransaction>;
+  mint(to: string, overrides?: Overrides): Promise<ContractTransaction>;
 
-  "mint(address,uint256)"(
+  "mint(address)"(
     to: string,
-    tokenId: BigNumberish,
     overrides?: Overrides
   ): Promise<ContractTransaction>;
 
@@ -402,15 +381,10 @@ export class ProofOfAuditNFT extends Contract {
 
   "renounceOwnership()"(overrides?: Overrides): Promise<ContractTransaction>;
 
-  safeMint(
-    to: string,
-    tokenId: BigNumberish,
-    overrides?: Overrides
-  ): Promise<ContractTransaction>;
+  safeMint(to: string, overrides?: Overrides): Promise<ContractTransaction>;
 
-  "safeMint(address,uint256)"(
+  "safeMint(address)"(
     to: string,
-    tokenId: BigNumberish,
     overrides?: Overrides
   ): Promise<ContractTransaction>;
 
@@ -528,17 +502,9 @@ export class ProofOfAuditNFT extends Contract {
       overrides?: CallOverrides
     ): Promise<boolean>;
 
-    mint(
-      to: string,
-      tokenId: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    mint(to: string, overrides?: CallOverrides): Promise<void>;
 
-    "mint(address,uint256)"(
-      to: string,
-      tokenId: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    "mint(address)"(to: string, overrides?: CallOverrides): Promise<void>;
 
     name(overrides?: CallOverrides): Promise<string>;
 
@@ -559,17 +525,9 @@ export class ProofOfAuditNFT extends Contract {
 
     "renounceOwnership()"(overrides?: CallOverrides): Promise<void>;
 
-    safeMint(
-      to: string,
-      tokenId: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    safeMint(to: string, overrides?: CallOverrides): Promise<void>;
 
-    "safeMint(address,uint256)"(
-      to: string,
-      tokenId: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    "safeMint(address)"(to: string, overrides?: CallOverrides): Promise<void>;
 
     "safeTransferFrom(address,address,uint256)"(
       from: string,
@@ -711,17 +669,9 @@ export class ProofOfAuditNFT extends Contract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    mint(
-      to: string,
-      tokenId: BigNumberish,
-      overrides?: Overrides
-    ): Promise<BigNumber>;
+    mint(to: string, overrides?: Overrides): Promise<BigNumber>;
 
-    "mint(address,uint256)"(
-      to: string,
-      tokenId: BigNumberish,
-      overrides?: Overrides
-    ): Promise<BigNumber>;
+    "mint(address)"(to: string, overrides?: Overrides): Promise<BigNumber>;
 
     name(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -745,17 +695,9 @@ export class ProofOfAuditNFT extends Contract {
 
     "renounceOwnership()"(overrides?: Overrides): Promise<BigNumber>;
 
-    safeMint(
-      to: string,
-      tokenId: BigNumberish,
-      overrides?: Overrides
-    ): Promise<BigNumber>;
+    safeMint(to: string, overrides?: Overrides): Promise<BigNumber>;
 
-    "safeMint(address,uint256)"(
-      to: string,
-      tokenId: BigNumberish,
-      overrides?: Overrides
-    ): Promise<BigNumber>;
+    "safeMint(address)"(to: string, overrides?: Overrides): Promise<BigNumber>;
 
     "safeTransferFrom(address,address,uint256)"(
       from: string,
@@ -878,15 +820,10 @@ export class ProofOfAuditNFT extends Contract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    mint(
-      to: string,
-      tokenId: BigNumberish,
-      overrides?: Overrides
-    ): Promise<PopulatedTransaction>;
+    mint(to: string, overrides?: Overrides): Promise<PopulatedTransaction>;
 
-    "mint(address,uint256)"(
+    "mint(address)"(
       to: string,
-      tokenId: BigNumberish,
       overrides?: Overrides
     ): Promise<PopulatedTransaction>;
 
@@ -912,15 +849,10 @@ export class ProofOfAuditNFT extends Contract {
 
     "renounceOwnership()"(overrides?: Overrides): Promise<PopulatedTransaction>;
 
-    safeMint(
-      to: string,
-      tokenId: BigNumberish,
-      overrides?: Overrides
-    ): Promise<PopulatedTransaction>;
+    safeMint(to: string, overrides?: Overrides): Promise<PopulatedTransaction>;
 
-    "safeMint(address,uint256)"(
+    "safeMint(address)"(
       to: string,
-      tokenId: BigNumberish,
       overrides?: Overrides
     ): Promise<PopulatedTransaction>;
 
