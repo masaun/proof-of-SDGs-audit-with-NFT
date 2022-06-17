@@ -76,6 +76,17 @@ const config: HardhatUserConfig = {
       saveDeployments: true,
       tags: ["test", "local"],
     },
+    polygon_mumbai: {
+      url: "https://rpc-mumbai.matic.today/",  // [Ref]: https://docs.polygon.technology/docs/develop/network-details/network/
+      //url: "https://rpc-mumbai.maticvigil.com/",
+      accounts,
+      chainId: 80001,
+      live: true,
+      saveDeployments: true,
+      tags: ["staging"],
+      gasMultiplier: 2,
+    },
+
    /*
     ropsten: {
       url: `https://ropsten.infura.io/v3/${process.env.INFURA_API_KEY}`,
