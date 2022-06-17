@@ -55,6 +55,22 @@ async function deploySmartContracts() {
     await saiReportRegistry.deployed()
 }
 
+/**
+ * @notice - getSAIReport(): Check whether a SAI Report was registered properly or not
+ */ 
+async function getSAIReport() {
+    const organization: string = "0xe344D3D194cD5038Bc9B02F5042754677FBddE81"
+    const auditor: string = "0xe7E6c88Ad1BAb6508a251B7995f44fB1C5E3dCF7"
+    const contentHashOfSAIReport: string = "QmbWqxBEKC3P8tqsKc98xmWNzrzDtRLMiMPL8wBuTGsMnR"
+
+    const saiReport: any = await saiReportRegistry.getSAIReport(organization, auditor)
+    console.log(`saiReport: ${ saiReport }`)
+    expect(saiReport.organization).to.eq(organization)
+    expect(saiReport.auditor).to.eq(auditor)
+    expect(saiReport.targetGoalInSDGs).to.eq(TargetGoalInSDGs.NO_POVERTY)  // 1
+    expect(saiReport.contentHashOfSAIReport).to.eq(contentHashOfSAIReport)
+}
+
 
 /**
  * @notice - Main method for executing methods in this script
@@ -67,7 +83,11 @@ async function main() {
 
     console.log("Account balance:", (await deployer.getBalance()).toString());
 
+    //@dev - Deploy smart contracts
     await deploySmartContracts()
+
+    //@dev - getSAIReport()
+    await getSAIReport()
 }
 
 main()
