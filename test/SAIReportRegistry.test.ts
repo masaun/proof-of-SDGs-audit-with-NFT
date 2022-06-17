@@ -66,14 +66,26 @@ describe("SAIReportRegistry", function () {
 
         // wait until the transaction is mined
         const txReceipt = await tx.wait()
+    })
 
-        //@notice - Check whether a SAI Report was registered properly or not
+
+    it("getSAIReport() - Check whether a SAI Report was registered properly or not", async function () {
+        const organization: string = "0xe344D3D194cD5038Bc9B02F5042754677FBddE81"
+        const auditor: string = "0xe7E6c88Ad1BAb6508a251B7995f44fB1C5E3dCF7"
+        const contentHashOfSAIReport: string = "QmbWqxBEKC3P8tqsKc98xmWNzrzDtRLMiMPL8wBuTGsMnR"
+
         const saiReport: any = await saiReportRegistry.getSAIReport(organization, auditor)
         console.log(`saiReport: ${ saiReport }`)
         expect(saiReport.organization).to.eq(organization)
         expect(saiReport.auditor).to.eq(auditor)
         expect(saiReport.targetGoalInSDGs).to.eq(TargetGoalInSDGs.NO_POVERTY)  // 1
         expect(saiReport.contentHashOfSAIReport).to.eq(contentHashOfSAIReport)
+    })
+
+    it("proofOfAuditNFT.ownerOf() - Check whether a proof of audit NFT is minted for the origanizaion registered or not", async function () {
+        const organization: string = "0xe344D3D194cD5038Bc9B02F5042754677FBddE81"
+        const auditor: string = "0xe7E6c88Ad1BAb6508a251B7995f44fB1C5E3dCF7"
+        const saiReport: any = await saiReportRegistry.getSAIReport(organization, auditor)
 
         //@notice - Check whether a proof of audit NFT is minted for the origanizaion registered or not
         const proofId: number = 0  // [NOTE]: Proof ID is "tokenID" of ProofOfAuditNFT
