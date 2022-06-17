@@ -43,12 +43,20 @@ async function main() {
 
     console.log("Account balance:", (await deployer.getBalance()).toString());
 
-    //@dev - Deploy 
+    const something: string = "something"
+
+    //@dev - Deploy the ProofOfAuditNFT.sol
     const ProofOfAuditNFT = await ethers.getContractFactory("ProofOfAuditNFT")
     proofOfAuditNFT = await ProofOfAuditNFT.deploy()
     PROOF_OF_AUDIT_NFT = proofOfAuditNFT.address
     await proofOfAuditNFT.deployed()
     console.log("PROOF_OF_AUDIT_NFT: ", PROOF_OF_AUDIT_NFT);
+
+    //@dev - Deploy the SAIReportRegistry.sol
+    const SAIReportRegistry = await ethers.getContractFactory("SAIReportRegistry")
+    saiReportRegistry = await SAIReportRegistry.deploy(PROOF_OF_AUDIT_NFT, something)
+    SAI_REPORT_REGISTRY = saiReportRegistry.address
+    await saiReportRegistry.deployed()
 }
 
 main()

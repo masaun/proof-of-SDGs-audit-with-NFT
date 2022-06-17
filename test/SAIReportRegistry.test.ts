@@ -38,7 +38,6 @@ describe("SAIReportRegistry", function () {
 
 
     before("Setup smart contracts", async () => {
-        //[TODO]:
         const something: string = "something"
 
         //@dev - Deploy the ProofOfAuditNFT.sol
