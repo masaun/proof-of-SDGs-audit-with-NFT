@@ -4,7 +4,7 @@ const { ethers } = require("hardhat")
 import { SAIReportRegistry } from "../types/SAIReportRegistry"
 
 
-describe("Greeter", function () {
+describe("SAIReportRegistry", function () {
 
     let saiReportRegistry: SAIReportRegistry
 
