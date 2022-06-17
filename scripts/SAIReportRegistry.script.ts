@@ -36,7 +36,7 @@ const TargetGoalInSDGs = {
 
 
 /**
- * @notice - Deploy smart contracts
+ * @notice Deploy smart contracts
  */ 
 async function deploySmartContracts() {
     const something: string = "something"
@@ -56,7 +56,22 @@ async function deploySmartContracts() {
 }
 
 /**
- * @notice - getSAIReport(): Check whether a SAI Report was registered properly or not
+ * @notice registerNewSAIReport() - Register a new SAIReport
+ */
+async function registerNewSAIReport() {
+    const organization: string = "0xe344D3D194cD5038Bc9B02F5042754677FBddE81"
+    const auditor: string = "0xe7E6c88Ad1BAb6508a251B7995f44fB1C5E3dCF7"
+    const targetGoalInSDGs: number = TargetGoalInSDGs.NO_POVERTY   // 1
+    const contentHashOfSAIReport: string = "QmbWqxBEKC3P8tqsKc98xmWNzrzDtRLMiMPL8wBuTGsMnR"
+    const tx = await saiReportRegistry.registerNewSAIReport(organization, auditor, targetGoalInSDGs, contentHashOfSAIReport)
+
+    // wait until the transaction is mined
+    const txReceipt = await tx.wait()
+}
+
+
+/**
+ * @notice getSAIReport() - Check whether a SAI Report was registered properly or not
  */ 
 async function getSAIReport() {
     const organization: string = "0xe344D3D194cD5038Bc9B02F5042754677FBddE81"
@@ -85,6 +100,9 @@ async function main() {
 
     //@dev - Deploy smart contracts
     await deploySmartContracts()
+
+    //@dev - 
+    await registerNewSAIReport()
 
     //@dev - getSAIReport()
     await getSAIReport()
