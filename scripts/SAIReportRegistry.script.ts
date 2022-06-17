@@ -35,14 +35,10 @@ const TargetGoalInSDGs = {
 }
 
 
-async function main() {
-    console.log(process.argv);
-    const [deployer] = await ethers.getSigners();
-
-    console.log("Deploying contracts with the account:", deployer.address);
-
-    console.log("Account balance:", (await deployer.getBalance()).toString());
-
+/**
+ * @notice - Deploy smart contracts
+ */ 
+async function deploySmartContracts() {
     const something: string = "something"
 
     //@dev - Deploy the ProofOfAuditNFT.sol
@@ -57,6 +53,21 @@ async function main() {
     saiReportRegistry = await SAIReportRegistry.deploy(PROOF_OF_AUDIT_NFT, something)
     SAI_REPORT_REGISTRY = saiReportRegistry.address
     await saiReportRegistry.deployed()
+}
+
+
+/**
+ * @notice - Main method for executing methods in this script
+ */
+async function main() {
+    console.log(process.argv);
+    const [deployer] = await ethers.getSigners();
+
+    console.log("Deploying contracts with the account:", deployer.address);
+
+    console.log("Account balance:", (await deployer.getBalance()).toString());
+
+    await deploySmartContracts()
 }
 
 main()
