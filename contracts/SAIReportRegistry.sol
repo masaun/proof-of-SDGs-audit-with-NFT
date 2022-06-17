@@ -2,6 +2,8 @@
 
 pragma solidity 0.8.10;
 
+import { ProofOfAuditNFT } from "./ProofOfAuditNFT.sol";
+
 import { ISAIReportRegistry } from "./interfaces/ISAIReportRegistry.sol";
 
 import { DataTypes } from './libraries/DataTypes.sol';
@@ -17,14 +19,17 @@ contract SAIReportRegistry is ISAIReportRegistry {
 
     string private something;
 
+    ProofOfAuditNFT public proofOfAuditNFT;
+
     //@dev - List of organizations registered
     address[] public organizations;
 
     //@dev - Storage of the SAIReport (struct)
     mapping (address => mapping (address => DataTypes.SAIReport)) saiReports;  // [Key]: organization's address -> auditor's address -> SAIReport struct
 
-    constructor(string memory _something) {
-        //[TODO]:
+    constructor(ProofOfAuditNFT _proofOfAuditNFT, string memory _something) {
+        proofOfAuditNFT = _proofOfAuditNFT;
+
         console.log("Something", _something);
         something = _something;
     }

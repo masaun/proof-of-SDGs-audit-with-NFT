@@ -6,8 +6,9 @@ import { ERC721 } from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import { Ownable } from "@openzeppelin/contracts/access/Ownable.sol";
 import { Counters } from "@openzeppelin/contracts/utils/Counters.sol";
 
+
 contract ProofOfAuditNFT is ERC721, Ownable {
-  
+
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIdCounter;
 
