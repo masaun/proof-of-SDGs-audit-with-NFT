@@ -50,7 +50,7 @@ async function deploySmartContracts() {
 
     //@dev - Deploy the SAIReportRegistry.sol
     const SAIReportRegistry = await ethers.getContractFactory("SAIReportRegistry")
-    saiReportRegistry = await SAIReportRegistry.deploy(PROOF_OF_AUDIT_NFT, something)
+    saiReportRegistry = await SAIReportRegistry.deploy(PROOF_OF_AUDIT_NFT, something, { gasLimit: 250000, gasPrice: 10000000000000 })
     SAI_REPORT_REGISTRY = saiReportRegistry.address
     await saiReportRegistry.deployed()
 }
