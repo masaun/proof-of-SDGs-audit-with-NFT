@@ -25,6 +25,7 @@ interface SAIReportRegistryInterface extends ethers.utils.Interface {
     "getSAIReport(address,address)": FunctionFragment;
     "getSomething()": FunctionFragment;
     "organizations(uint256)": FunctionFragment;
+    "proofOfAuditNFT()": FunctionFragment;
     "registerNewSAIReport(address,address,uint8,string)": FunctionFragment;
   };
 
@@ -41,6 +42,10 @@ interface SAIReportRegistryInterface extends ethers.utils.Interface {
     values: [BigNumberish]
   ): string;
   encodeFunctionData(
+    functionFragment: "proofOfAuditNFT",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
     functionFragment: "registerNewSAIReport",
     values: [string, string, BigNumberish, string]
   ): string;
@@ -55,6 +60,10 @@ interface SAIReportRegistryInterface extends ethers.utils.Interface {
   ): Result;
   decodeFunctionResult(
     functionFragment: "organizations",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "proofOfAuditNFT",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -141,6 +150,10 @@ export class SAIReportRegistry extends Contract {
       overrides?: CallOverrides
     ): Promise<[string]>;
 
+    proofOfAuditNFT(overrides?: CallOverrides): Promise<[string]>;
+
+    "proofOfAuditNFT()"(overrides?: CallOverrides): Promise<[string]>;
+
     registerNewSAIReport(
       _organization: string,
       _auditor: string,
@@ -194,6 +207,10 @@ export class SAIReportRegistry extends Contract {
     arg0: BigNumberish,
     overrides?: CallOverrides
   ): Promise<string>;
+
+  proofOfAuditNFT(overrides?: CallOverrides): Promise<string>;
+
+  "proofOfAuditNFT()"(overrides?: CallOverrides): Promise<string>;
 
   registerNewSAIReport(
     _organization: string,
@@ -252,6 +269,10 @@ export class SAIReportRegistry extends Contract {
       overrides?: CallOverrides
     ): Promise<string>;
 
+    proofOfAuditNFT(overrides?: CallOverrides): Promise<string>;
+
+    "proofOfAuditNFT()"(overrides?: CallOverrides): Promise<string>;
+
     registerNewSAIReport(
       _organization: string,
       _auditor: string,
@@ -298,6 +319,10 @@ export class SAIReportRegistry extends Contract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
+    proofOfAuditNFT(overrides?: CallOverrides): Promise<BigNumber>;
+
+    "proofOfAuditNFT()"(overrides?: CallOverrides): Promise<BigNumber>;
+
     registerNewSAIReport(
       _organization: string,
       _auditor: string,
@@ -339,6 +364,12 @@ export class SAIReportRegistry extends Contract {
 
     "organizations(uint256)"(
       arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    proofOfAuditNFT(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    "proofOfAuditNFT()"(
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 

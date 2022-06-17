@@ -2,12 +2,20 @@ const { expect } = require("chai")
 const { ethers } = require("hardhat")
 
 import { SAIReportRegistry } from "../types/SAIReportRegistry"
+import { ProofOfAuditNFT } from "../types/ProofOfAuditNFT"
 
 
 describe("SAIReportRegistry", function () {
 
+    //@notice - Variable for storing smart contract instances
     let saiReportRegistry: SAIReportRegistry
+    let proofOfAuditNFT: ProofOfAuditNFT
 
+    //@notice - Variable for storing smart contract addresses
+    let SAI_REPORT_REGISTRY: string
+    let PROOF_OF_AUDIT_NFT: string
+
+    //@notice - Variable for enum of TargetGoalInSDGs
     const TargetGoalInSDGs = {
         NO_POVERTY: 1,                               // SDGs number: 1
         ZERO_HUNGER: 2,                              // SDGs number: 2
@@ -33,8 +41,16 @@ describe("SAIReportRegistry", function () {
         //[TODO]:
         const something: string = "something"
 
+        //@dev - Deploy 
+        const ProofOfAuditNFT = await ethers.getContractFactory("ProofOfAuditNFT")
+        proofOfAuditNFT = await ProofOfAuditNFT.deploy()
+        PROOF_OF_AUDIT_NFT = proofOfAuditNFT.address
+        await proofOfAuditNFT.deployed()
+
+        //@dev - Deploy the SAIReportRegistry.sol
         const SAIReportRegistry = await ethers.getContractFactory("SAIReportRegistry")
-        saiReportRegistry = await SAIReportRegistry.deploy(something)
+        saiReportRegistry = await SAIReportRegistry.deploy(PROOF_OF_AUDIT_NFT, something)
+        SAI_REPORT_REGISTRY = saiReportRegistry.address
         await saiReportRegistry.deployed()
 
         // @dev - Check result
