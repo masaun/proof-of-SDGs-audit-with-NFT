@@ -10,8 +10,8 @@
     "deploy-local:Sample": "npx hardhat run scripts/deployment/00_deploy_Sample.js --network hardhat",    
     "deploy-kovan:Something": "npx hardhat run scripts/deployment/deploySomething.script.js --network kovan",    
     "node": "npx hardhat node",
-    "script-local:Something": "npx hardhat run scripts/Something.script.js --network hardhat",
-    "script-kovan:Something": "npx hardhat run scripts/Something.script.js --network kovan"
+    "script-local:SAIReportRegistry": "npx hardhat run scripts/SAIReportRegistry.script.ts --network hardhat",
+    "script-kovan:SAIReportRegistry": "npx hardhat run scripts/SAIReportRegistry.script.ts --network kovan"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.6.0",

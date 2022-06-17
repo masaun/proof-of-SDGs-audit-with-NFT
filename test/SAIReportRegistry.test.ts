@@ -41,7 +41,7 @@ describe("SAIReportRegistry", function () {
         //[TODO]:
         const something: string = "something"
 
-        //@dev - Deploy 
+        //@dev - Deploy the ProofOfAuditNFT.sol
         const ProofOfAuditNFT = await ethers.getContractFactory("ProofOfAuditNFT")
         proofOfAuditNFT = await ProofOfAuditNFT.deploy()
         PROOF_OF_AUDIT_NFT = proofOfAuditNFT.address
@@ -67,7 +67,6 @@ describe("SAIReportRegistry", function () {
         // wait until the transaction is mined
         const txReceipt = await tx.wait()
     })
-
 
     it("getSAIReport() - Check whether a SAI Report was registered properly or not", async function () {
         const organization: string = "0xe344D3D194cD5038Bc9B02F5042754677FBddE81"
