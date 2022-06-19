@@ -24,6 +24,8 @@ const accounts = {
 }
 
 const config: HardhatUserConfig = {
+  defaultNetwork: "hardhat",
+
   abiExporter: {
     path: "./abi",
     clear: false,
@@ -31,7 +33,6 @@ const config: HardhatUserConfig = {
     // only: [],
     // except: []
   },
-  defaultNetwork: "hardhat",
   etherscan: {
     apiKey: process.env.SCAN_API_KEY,
   },
@@ -80,8 +81,8 @@ const config: HardhatUserConfig = {
       url: `https://polygon-mumbai.g.alchemy.com/v2/${process.env.ALCHEMY_POLYGON_MUMBAI_KEY}`,
       //url: "https://rpc-mumbai.matic.today/",  // [Ref]: https://docs.polygon.technology/docs/develop/network-details/network/
       //url: "https://rpc-mumbai.maticvigil.com/",
-      //accounts: [process.env.PRIVATE_KEY],
-      accounts,
+      accounts: [ `${ process.env.PRIVATE_KEY }`],
+      //accounts,
       chainId: 80001,
       live: true,
       saveDeployments: true,
