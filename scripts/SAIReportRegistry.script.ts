@@ -43,14 +43,14 @@ async function deploySmartContracts() {
 
     //@dev - Deploy the ProofOfAuditNFT.sol
     const ProofOfAuditNFT = await ethers.getContractFactory("ProofOfAuditNFT")
-    proofOfAuditNFT = await ProofOfAuditNFT.deploy()
+    proofOfAuditNFT = await ProofOfAuditNFT.deploy({ gasLimit: 250000, gasPrice: 1000000000000 })
     PROOF_OF_AUDIT_NFT = proofOfAuditNFT.address
     await proofOfAuditNFT.deployed()
     console.log("PROOF_OF_AUDIT_NFT: ", PROOF_OF_AUDIT_NFT);
 
     //@dev - Deploy the SAIReportRegistry.sol
     const SAIReportRegistry = await ethers.getContractFactory("SAIReportRegistry")
-    saiReportRegistry = await SAIReportRegistry.deploy(PROOF_OF_AUDIT_NFT, something)
+    saiReportRegistry = await SAIReportRegistry.deploy(PROOF_OF_AUDIT_NFT, something, { gasLimit: 250000, gasPrice: 10000000000000 })
     SAI_REPORT_REGISTRY = saiReportRegistry.address
     await saiReportRegistry.deployed()
 }
@@ -63,7 +63,7 @@ async function registerNewSAIReport() {
     const auditor: string = "0xe7E6c88Ad1BAb6508a251B7995f44fB1C5E3dCF7"
     const targetGoalInSDGs: number = TargetGoalInSDGs.NO_POVERTY   // 1
     const contentHashOfSAIReport: string = "QmbWqxBEKC3P8tqsKc98xmWNzrzDtRLMiMPL8wBuTGsMnR"
-    const tx = await saiReportRegistry.registerNewSAIReport(organization, auditor, targetGoalInSDGs, contentHashOfSAIReport)
+    const tx = await saiReportRegistry.registerNewSAIReport(organization, auditor, targetGoalInSDGs, contentHashOfSAIReport, { gasLimit: 250000, gasPrice: 10000000000000 })
 
     // wait until the transaction is mined
     const txReceipt = await tx.wait()
@@ -94,9 +94,11 @@ async function main() {
     console.log(process.argv);
     const [deployer] = await ethers.getSigners();
 
-    console.log("Deploying contracts with the account:", deployer.address);
+    //@dev - Check a deployer address
+    console.log("Deploying contracts with the account (the deployer address):", deployer.address);
 
-    console.log("Account balance:", (await deployer.getBalance()).toString());
+    //@dev - Check account balance ($MATIC token) of deployer address
+    console.log("Account balance (of deployer address):", (await deployer.getBalance()).toString());
 
     //@dev - Deploy smart contracts
     await deploySmartContracts()
