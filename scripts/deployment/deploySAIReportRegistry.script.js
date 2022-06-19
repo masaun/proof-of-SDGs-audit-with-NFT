@@ -15,14 +15,16 @@ async function deploySmartContracts() {
 
     //@dev - Deploy the ProofOfAuditNFT.sol
     const ProofOfAuditNFT = await ethers.getContractFactory("ProofOfAuditNFT")
-    proofOfAuditNFT = await ProofOfAuditNFT.deploy({ gasLimit: 250000, gasPrice: 1000000000000 })
+    proofOfAuditNFT = await ProofOfAuditNFT.deploy()
+    //proofOfAuditNFT = await ProofOfAuditNFT.deploy({ gasLimit: 250000, gasPrice: 1000000000000 })
     PROOF_OF_AUDIT_NFT = proofOfAuditNFT.address
     await proofOfAuditNFT.deployed()
     console.log("PROOF_OF_AUDIT_NFT: ", PROOF_OF_AUDIT_NFT);
 
     //@dev - Deploy the SAIReportRegistry.sol
     const SAIReportRegistry = await ethers.getContractFactory("SAIReportRegistry")
-    saiReportRegistry = await SAIReportRegistry.deploy(PROOF_OF_AUDIT_NFT, something, { gasLimit: 250000, gasPrice: 10000000000000 })
+    saiReportRegistry = await SAIReportRegistry.deploy(PROOF_OF_AUDIT_NFT, something)
+    //saiReportRegistry = await SAIReportRegistry.deploy(PROOF_OF_AUDIT_NFT, something, { gasLimit: 250000, gasPrice: 10000000000000 })
     SAI_REPORT_REGISTRY = saiReportRegistry.address
     await saiReportRegistry.deployed()
 }
