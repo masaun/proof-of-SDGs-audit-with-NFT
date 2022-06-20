@@ -17,6 +17,7 @@ npx hardhat test
 ```
 npm run test
 ```
+( `npx hardhat test --network hardhat` )
 
 <br>
 
