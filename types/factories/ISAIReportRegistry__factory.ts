@@ -64,19 +64,6 @@ const _abi = [
     type: "function",
   },
   {
-    inputs: [],
-    name: "getSomething",
-    outputs: [
-      {
-        internalType: "string",
-        name: "_something",
-        type: "string",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
     inputs: [
       {
         internalType: "address",

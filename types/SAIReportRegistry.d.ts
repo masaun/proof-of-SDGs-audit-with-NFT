@@ -23,7 +23,6 @@ import { FunctionFragment, EventFragment, Result } from "@ethersproject/abi";
 interface SAIReportRegistryInterface extends ethers.utils.Interface {
   functions: {
     "getSAIReport(address,address)": FunctionFragment;
-    "getSomething()": FunctionFragment;
     "organizations(uint256)": FunctionFragment;
     "proofOfAuditNFT()": FunctionFragment;
     "registerNewSAIReport(address,address,uint8,string)": FunctionFragment;
@@ -32,10 +31,6 @@ interface SAIReportRegistryInterface extends ethers.utils.Interface {
   encodeFunctionData(
     functionFragment: "getSAIReport",
     values: [string, string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getSomething",
-    values?: undefined
   ): string;
   encodeFunctionData(
     functionFragment: "organizations",
@@ -52,10 +47,6 @@ interface SAIReportRegistryInterface extends ethers.utils.Interface {
 
   decodeFunctionResult(
     functionFragment: "getSAIReport",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getSomething",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -132,14 +123,6 @@ export class SAIReportRegistry extends Contract {
       }
     >;
 
-    getSomething(
-      overrides?: CallOverrides
-    ): Promise<[string] & { _something: string }>;
-
-    "getSomething()"(
-      overrides?: CallOverrides
-    ): Promise<[string] & { _something: string }>;
-
     organizations(
       arg0: BigNumberish,
       overrides?: CallOverrides
@@ -197,10 +180,6 @@ export class SAIReportRegistry extends Contract {
     }
   >;
 
-  getSomething(overrides?: CallOverrides): Promise<string>;
-
-  "getSomething()"(overrides?: CallOverrides): Promise<string>;
-
   organizations(arg0: BigNumberish, overrides?: CallOverrides): Promise<string>;
 
   "organizations(uint256)"(
@@ -255,10 +234,6 @@ export class SAIReportRegistry extends Contract {
       }
     >;
 
-    getSomething(overrides?: CallOverrides): Promise<string>;
-
-    "getSomething()"(overrides?: CallOverrides): Promise<string>;
-
     organizations(
       arg0: BigNumberish,
       overrides?: CallOverrides
@@ -305,10 +280,6 @@ export class SAIReportRegistry extends Contract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    getSomething(overrides?: CallOverrides): Promise<BigNumber>;
-
-    "getSomething()"(overrides?: CallOverrides): Promise<BigNumber>;
-
     organizations(
       arg0: BigNumberish,
       overrides?: CallOverrides
@@ -352,10 +323,6 @@ export class SAIReportRegistry extends Contract {
       auditor: string,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
-
-    getSomething(overrides?: CallOverrides): Promise<PopulatedTransaction>;
-
-    "getSomething()"(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     organizations(
       arg0: BigNumberish,

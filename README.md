@@ -1,4 +1,4 @@
-# Proof of SDGs🌍🌿 / Proof of Achievement for SDGs🏅
+# Proof of SDGs Audit (with NFT)🌍🌿
 
 This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
 
@@ -13,7 +13,7 @@ npx hardhat test
 <br>
 
 ## 【Test】
-- Run all of tests
+- Run all of tests. (NOTE: At the moment, only `./test/SAIReportRegistry.test.ts` is executed)
 ```
 npm run test
 ```
