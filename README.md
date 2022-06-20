@@ -12,19 +12,12 @@ npx hardhat test
 
 <br>
 
-### Script (include deployment on Polygon Mumbai)
-- Local
+## 【Test】
+- Run all of tests
 ```
-npm run script-local:SAIReportRegistry
+npm run test
 ```
-
-<br>
-
-- Polygon Mumbai
-```
-npm run script-polygon_mumbai:SAIReportRegistry
-```
-
+( `npx hardhat test --network hardhat` )
 
 <br>
 
