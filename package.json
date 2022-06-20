@@ -10,6 +10,7 @@
     "deploy-local:Sample": "npx hardhat run scripts/deployment/00_deploy_Sample.js --network hardhat",    
     "deploy-kovan:Something": "npx hardhat run scripts/deployment/deploySomething.script.js --network kovan",    
     "node": "npx hardhat node",
+    "script-polygon_mumbai:sample": "npx hardhat run scripts/sample-script.js --network polygon_mumbai",
     "script-local:SAIReportRegistry": "npx hardhat run scripts/SAIReportRegistry.script.ts --network hardhat",
     "script-polygon_mumbai:SAIReportRegistry": "npx hardhat run scripts/SAIReportRegistry.script.ts --network polygon_mumbai"
   },
