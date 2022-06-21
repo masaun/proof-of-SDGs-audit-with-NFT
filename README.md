@@ -1,13 +1,30 @@
 # Proof of SDGs Audit (with NFT)🌍🌿
+## 【Overview】
+- This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+- Try running some of the following tasks:
 
-Try running some of the following tasks:
+<br>
 
-```shell
+## 【Specifications】
+
+<br>
+
+## 【Workflow】
+
+<br>
+
+## 【Installation】
+- ① Install modules
+```
 npm install
-npx hardhat compile
-npx hardhat test
+```
+
+<br>
+
+- ② Compile smart contracts
+```
+npm run compile
 ```
 
 <br>
