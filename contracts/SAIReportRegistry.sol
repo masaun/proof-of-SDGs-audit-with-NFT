@@ -17,8 +17,6 @@ import "hardhat/console.sol";
 
 contract SAIReportRegistry is ISAIReportRegistry {
 
-    string private something;
-
     ProofOfAuditNFT public proofOfAuditNFT;
 
     //@dev - List of organizations registered
@@ -27,11 +25,8 @@ contract SAIReportRegistry is ISAIReportRegistry {
     //@dev - Storage of the SAIReport (struct)
     mapping (address => mapping (address => DataTypes.SAIReport)) saiReports;  // [Key]: organization's address -> auditor's address -> SAIReport struct
 
-    constructor(ProofOfAuditNFT _proofOfAuditNFT, string memory _something) {
+    constructor(ProofOfAuditNFT _proofOfAuditNFT) {
         proofOfAuditNFT = _proofOfAuditNFT;
-
-        console.log("Something", _something);
-        something = _something;
     }
 
     /**
@@ -60,14 +55,6 @@ contract SAIReportRegistry is ISAIReportRegistry {
     function getSAIReport(address organization, address auditor) external override view returns (DataTypes.SAIReport memory _saiReport) {
         DataTypes.SAIReport memory saiReport = saiReports[organization][auditor];
         return saiReport;
-    }
-
-
-    /**
-     * @notice - Test
-     */ 
-    function getSomething() external override view returns (string memory _something) {
-        return something;
     }
 
 }

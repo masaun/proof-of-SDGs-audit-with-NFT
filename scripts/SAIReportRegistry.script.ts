@@ -39,8 +39,6 @@ const TargetGoalInSDGs = {
  * @notice Deploy smart contracts
  */ 
 async function deploySmartContracts() {
-    const something: string = "something"
-
     //@dev - Deploy the ProofOfAuditNFT.sol
     const ProofOfAuditNFT = await ethers.getContractFactory("ProofOfAuditNFT")
     proofOfAuditNFT = await ProofOfAuditNFT.deploy({ gasLimit: 2500000, gasPrice: 1500000000000 })
@@ -50,7 +48,7 @@ async function deploySmartContracts() {
 
     //@dev - Deploy the SAIReportRegistry.sol
     const SAIReportRegistry = await ethers.getContractFactory("SAIReportRegistry")
-    saiReportRegistry = await SAIReportRegistry.deploy(PROOF_OF_AUDIT_NFT, something, { gasLimit: 2500000, gasPrice: 1500000000000 })
+    saiReportRegistry = await SAIReportRegistry.deploy(PROOF_OF_AUDIT_NFT, { gasLimit: 2500000, gasPrice: 1500000000000 })
     SAI_REPORT_REGISTRY = saiReportRegistry.address
     await saiReportRegistry.deployed()
 }

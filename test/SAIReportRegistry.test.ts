@@ -38,8 +38,6 @@ describe("SAIReportRegistry", function () {
 
 
     before("Setup smart contracts", async () => {
-        const something: string = "something"
-
         //@dev - Deploy the ProofOfAuditNFT.sol
         const ProofOfAuditNFT = await ethers.getContractFactory("ProofOfAuditNFT")
         proofOfAuditNFT = await ProofOfAuditNFT.deploy()
@@ -49,13 +47,13 @@ describe("SAIReportRegistry", function () {
 
         //@dev - Deploy the SAIReportRegistry.sol
         const SAIReportRegistry = await ethers.getContractFactory("SAIReportRegistry")
-        saiReportRegistry = await SAIReportRegistry.deploy(PROOF_OF_AUDIT_NFT, something)
+        saiReportRegistry = await SAIReportRegistry.deploy(PROOF_OF_AUDIT_NFT)
         SAI_REPORT_REGISTRY = saiReportRegistry.address
         console.log(`SAI_REPORT_REGISTRY (on Polygon Mumbai): ${ SAI_REPORT_REGISTRY }`)
         await saiReportRegistry.deployed()
 
         // @dev - Check result
-        expect(await saiReportRegistry.getSomething()).to.eq("something")
+        expect(await SAI_REPORT_REGISTRY).to.eq(saiReportRegistry.address)
     })
 
     it("registerNewSAIReport() - Register a new SAIReport", async function () {

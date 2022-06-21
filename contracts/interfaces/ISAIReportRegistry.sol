@@ -7,5 +7,4 @@ import { DataTypes } from '../libraries/DataTypes.sol';
 interface ISAIReportRegistry {
     function registerNewSAIReport(address organization, address auditor, DataTypes.TargetGoalInSDGs _targetGoalInSDGs, string memory contentHashOfSAIReport) external;
     function getSAIReport(address organization, address auditor) external view returns (DataTypes.SAIReport memory _saiReport);
-    function getSomething() external view returns (string memory _something);
 }
