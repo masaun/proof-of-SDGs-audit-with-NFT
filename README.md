@@ -1,13 +1,37 @@
 # Proof of SDGs Audit (with NFT)🌍🌿
+## 【Overview】
+- The 17 Sustainable Development Goals (SDGs) are defined by UN (United Nations) in 2015.
+  - There is `external auditor` called `the Supreme Audit Institutions ("SAIs")` and audit report by them. (it's called `"SAI report"` ) 
+    https://www.un.org/en/desa/some-considerations-external-audits-sdg-implementation
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+<br>
 
-Try running some of the following tasks:
+- This is a smart contract allow organizations to show `a proof of SDGs audit` in the form of `NFT` ( `on-chain` ) that is associated with `SAI reports` .
 
-```shell
+<br>
+
+## 【Workflow】
+- This is a smart contract that:
+  - organizations which get a SAI audit report can register it on-chain.
+  - and they can receive a NFT as a proof of SDGs audit.
+
+<br>
+
+- Diagram will be here
+
+<br>
+
+## 【Installation】
+- ① Install modules
+```
 npm install
-npx hardhat compile
-npx hardhat test
+```
+
+<br>
+
+- ② Compile smart contracts
+```
+npm run compile
 ```
 
 <br>

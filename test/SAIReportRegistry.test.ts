@@ -42,14 +42,14 @@ describe("SAIReportRegistry", function () {
         const ProofOfAuditNFT = await ethers.getContractFactory("ProofOfAuditNFT")
         proofOfAuditNFT = await ProofOfAuditNFT.deploy()
         PROOF_OF_AUDIT_NFT = proofOfAuditNFT.address
-        console.log(`PROOF_OF_AUDIT_NFT (on Polygon Mumbai): ${ PROOF_OF_AUDIT_NFT }`)
+        console.log(`Deployed-contract address of the ProofOfAuditNFT.sol: ${ PROOF_OF_AUDIT_NFT }`)
         await proofOfAuditNFT.deployed()
 
         //@dev - Deploy the SAIReportRegistry.sol
         const SAIReportRegistry = await ethers.getContractFactory("SAIReportRegistry")
         saiReportRegistry = await SAIReportRegistry.deploy(PROOF_OF_AUDIT_NFT)
         SAI_REPORT_REGISTRY = saiReportRegistry.address
-        console.log(`SAI_REPORT_REGISTRY (on Polygon Mumbai): ${ SAI_REPORT_REGISTRY }`)
+        console.log(`Deployed-contract address of the SAIReportRegistry.sol: ${ SAI_REPORT_REGISTRY }`)
         await saiReportRegistry.deployed()
 
         // @dev - Check result
