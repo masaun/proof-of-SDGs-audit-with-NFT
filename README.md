@@ -1,19 +1,26 @@
 # Proof of SDGs Audit (with NFT)🌍🌿
 ## 【Overview】
-- The 17 Sustainable Development Goals (SDGs) are defined by UN (United Nations) in 2015.
-  - There is `external auditor` called `the Supreme Audit Institutions ("SAIs")` and audit report by them. (it's called `"SAI report"` ) 
+- The 17 Sustainable Development Goals (SDGs) are defined by UN (United Nations) in 2015.  
+  https://www.un.org/development/desa/disabilities/envision2030.html
+  ↓
+  - There is `external auditor` called `the Supreme Audit Institutions ("SAIs")`  
+  - SAIs investigate whether organizations is quarified for target SDGs or not.  
+  - Once a SAI audit an organization, that SAI publish an audit report for the organization. (it's called `"SAI report"` )  
     https://www.un.org/en/desa/some-considerations-external-audits-sdg-implementation
 
 <br>
 
 - This is a smart contract allow organizations to show `a proof of SDGs audit` in the form of `NFT` ( `on-chain` ) that is associated with `SAI reports` .
+  - The 17 Sustainable Development Goals (SDGs) are defined in `DataTypes.sol` as an enum:  
+    https://github.com/masaun/proof-of-SDGs-audit-with-NFT/blob/develop/contracts/libraries/DataTypes.sol#L23-L44  
+    <img width="482" alt="Screen Shot 2022-06-21 at 20 51 40" src="https://user-images.githubusercontent.com/19357502/174920336-9cb9cedf-7b3b-44e4-88f0-eabe1d41771b.png">
+
 
 <br>
 
 ## 【Workflow】
-- At the moment, this smart contract works from workflow ③〜④ below.
+- At the moment, this smart contract mainly works from the workflow ③〜④ below.
   ![Diagram_Proof-of-SDGs-Audit-with NFT](https://user-images.githubusercontent.com/19357502/174918330-d15815a0-1cc1-4e2d-8278-e5083f7767a0.jpeg)
-
 
 <br>
 
@@ -39,36 +46,11 @@ npm run test
 ```
 ( `npx hardhat test --network hardhat` )
 
-<br>
-
-<hr>
-
-- **NFT badge** as **_proof_** of `achievement` for `each goals (17) of SDGs` . 🌿  
-  - To increase awareness of SDGs and actions associated with them.
-    - This proofs are a global proof🌍 
-    - Who does judge whether individuals or enterprises achieve goals or not❓
-       - Auditor/publisher is UN.
-       - How to decentralize `auditor/publisher` is key. 🔴
-         - Aggregate reports from different `auditors` ➕ Publishing NFT-badges is escrowed. 👍
-         ↓
-         - There are 2 models (as candidates for implementation)
-           - e.g). Toucan.Protocol🌿 (Using the `Verra Standard`, etc)
-              => **_The Supreme Audit Institutions ("SAIs")_** 🌍 is an `external auditor` for **_SDGs_** 🔴：https://www.un.org/en/desa/some-considerations-external-audits-sdg-implementation 
-           - e.g). /or `Relayer` model (e.g. Tornado.Cash, 0x, FOAM, etc)
-           
-    - `Multi-Sig` when register SAI Report (=External Audit Report by SAI)🔴：Auditor & Organization which has a SAI Report (External Audit Report by SAI). 
-
-    - Deadline of 17 goals of SDGs is by 2030 <= Add `timestamp` to NFT-badges
-         <img width="507" alt="Screen Shot 2022-06-11 at 14 39 17" src="https://user-images.githubusercontent.com/19357502/173188296-ceea7559-946e-41c8-bb5c-302ad11be3be.png">
 
 <br>
 
-### _[Ref]：an `external auditor` for SDGs_
-- **_The Supreme Audit Institutions ("SAIs")_** 🌍 is an `external auditor` for **_SDGs_** 🔴
-  - Article by UN：https://www.un.org/en/desa/some-considerations-external-audits-sdg-implementation 
-  - PDF：[external-audits-of-SDG-implementation.pdf](https://github.com/masaun/DApps_Truffle_Ethereum_Projects/files/8885383/external-audits-of-SDG-implementation.pdf)
-     <img width="986" alt="Screen Shot 2022-06-11 at 21 26 02" src="https://user-images.githubusercontent.com/19357502/173202158-844f780d-d9fb-4a23-b089-054ca2337aac.png">
-
-
+## 【Demo】
+- This is a demo of test of the SAIReportRegistry contract ( `./test/SAIReportRegistry.test.ts` ) above.  
+  https://youtu.be/rFSO96llCps
 
 
