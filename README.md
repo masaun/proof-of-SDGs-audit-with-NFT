@@ -11,13 +11,9 @@
 <br>
 
 ## 【Workflow】
-- This is a smart contract that:
-  - organizations which get a SAI audit report can register it on-chain.
-  - and they can receive a NFT as a proof of SDGs audit.
+- At the moment, this smart contract works from workflow ③〜④ below.
+  ![Diagram_Proof-of-SDGs-Audit-with NFT](https://user-images.githubusercontent.com/19357502/174918330-d15815a0-1cc1-4e2d-8278-e5083f7767a0.jpeg)
 
-<br>
-
-- Diagram will be here
 
 <br>
 

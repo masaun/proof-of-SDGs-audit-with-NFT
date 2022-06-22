@@ -31,10 +31,8 @@ contract SAIReportRegistry is ISAIReportRegistry {
 
     /**
      * @notice - Register a new SAIReport
-     * @dev - Multi-Sig btw organization and auditor
      */ 
     function registerNewSAIReport(address _organization, address _auditor, DataTypes.TargetGoalInSDGs _targetGoalInSDGs, string memory _contentHashOfSAIReport) external override {
-        // [TODO]:
 
         DataTypes.SAIReport storage saiReport = saiReports[_organization][_auditor];
         saiReport.organization = _organization;
