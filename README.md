@@ -3,7 +3,9 @@
 - The 17 Sustainable Development Goals (SDGs) are defined by UN (United Nations) in 2015.  
   https://www.un.org/development/desa/disabilities/envision2030.html
    ↓
-  - There is `external auditor` called `the Supreme Audit Institutions ("SAIs")` and audit report by them. (it's called `"SAI report"` )   
+  - There is `external auditor` called `the Supreme Audit Institutions ("SAIs")`  
+  - SAIs investigate whether organizations is quarified for some SDGs or not.  
+  - Once a SAI audit an organization, that SAI publish an audit report for the organization. (it's called `"SAI report"` )  
     https://www.un.org/en/desa/some-considerations-external-audits-sdg-implementation
 
 <br>
