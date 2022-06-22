@@ -4,7 +4,7 @@
   https://www.un.org/development/desa/disabilities/envision2030.html
   ↓
   - There is `external auditor` called `the Supreme Audit Institutions ("SAIs")`  
-  - SAIs investigate whether organizations is quarified for some SDGs or not.  
+  - SAIs investigate whether organizations is quarified for target SDGs or not.  
   - Once a SAI audit an organization, that SAI publish an audit report for the organization. (it's called `"SAI report"` )  
     https://www.un.org/en/desa/some-considerations-external-audits-sdg-implementation
 
@@ -50,7 +50,7 @@ npm run test
 <br>
 
 ## 【Demo】
-- This is a demo of test of the SAIReportRegistry contract above.
-
+- This is a demo of test of the SAIReportRegistry contract ( `./test/SAIReportRegistry.test.ts` ) above.  
+  https://youtu.be/rFSO96llCps
 
 
